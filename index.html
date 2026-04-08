@@ -14,6 +14,47 @@ body{
   display:flex;align-items:center;justify-content:center;
   padding:24px;overflow-x:hidden;
 }
+  /* ENVELOPE */
+.envelope{
+  position:relative;
+  width:100%;
+  max-width:420px;
+  margin:0 auto;
+  perspective:1000px;
+}
+
+.flap{
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height:120px;
+  background:linear-gradient(135deg,#f4a261,#e76f51);
+  border-radius:20px 20px 0 0;
+  transform-origin:top;
+  transition:transform .8s cubic-bezier(.22,1,.36,1);
+  z-index:2;
+}
+
+/* lettera */
+.letter{
+  position:relative;
+  background:rgba(255,255,255,.9);
+  border-radius:20px;
+  padding:40px 24px 26px;
+  box-shadow:0 10px 30px rgba(0,0,0,.08);
+  transform:translateY(0);
+  transition:transform .8s cubic-bezier(.22,1,.36,1);
+}
+
+/* quando si apre */
+details[open] .flap{
+  transform:rotateX(-160deg);
+}
+
+details[open] .letter{
+  transform:translateY(-40px);
+}
 canvas#bg{position:fixed;inset:0;pointer-events:none;z-index:0;}
 .card{
   position:relative;z-index:1;
@@ -104,20 +145,19 @@ details[open] .body-content{display:block;}
 <main class="card">
   <details id="det">
     <summary class="btn">Apri invito</summary>
-    <div class="intro">
-  <span class="tag">Invito speciale</span>
+    <div class="intro envelope">
+      <div class="flap"></div>
 
-  <h1>Sei invitato/a</h1>
-
-  <p class="sub">
-    C'è un momento importante da condividere.<br>
-    E non potevi mancare proprio tu.
-  </p>
-
-  <p class="hint">
-    Tocca per scoprire tutti i dettagli ✨
-  </p>
-</div>
+      <div class="letter">
+          <span class="tag">Invito speciale</span>
+          <h1>Sei invitata/o</h1>
+           <p class="sub">
+          C'è un momento importante da condividere.<br>
+          E non potevi mancare proprio tu.
+           </p>
+           <p class="hint">Apri la lettera ✨</p>
+      </div>
+    </div>
     <div class="body-content">
       <div class="divider"></div>
       <span class="tag">Laurea in Informatica e Tecnologie per la Produzione del Software</span>
