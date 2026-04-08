@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Invito Laurea – Rebecca 🍑</title>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=DM+Sans:wght@300;400;600&display=swap" rel="stylesheet"/>
+
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
   <style>
     * {
       box-sizing: border-box;
@@ -34,21 +36,24 @@
       position: relative;
       z-index: 1;
       width: 100%;
-      max-width: 720px;
-      background: rgba(255,255,255,.72);
+      max-width: 760px;
+      background: rgba(255,255,255,.68);
       backdrop-filter: blur(18px);
-      border: 1px solid rgba(244,162,97,.35);
-      border-radius: 32px;
-      box-shadow: 0 24px 60px rgba(231,111,81,.15), 0 2px 0 rgba(255,255,255,.8) inset;
-      padding: 50px 36px;
+      border: 1px solid rgba(244,162,97,.28);
+      border-radius: 34px;
+      box-shadow:
+        0 24px 60px rgba(231,111,81,.12),
+        0 2px 0 rgba(255,255,255,.8) inset;
+      padding: 42px 28px;
       text-align: center;
-      animation: cardIn .9s cubic-bezier(.22,1,.36,1) both;
+      animation: cardIn .8s cubic-bezier(.22,1,.36,1) both;
+      overflow: hidden;
     }
 
     @keyframes cardIn {
       from {
         opacity: 0;
-        transform: translateY(48px) scale(.96);
+        transform: translateY(38px) scale(.97);
       }
       to {
         opacity: 1;
@@ -56,127 +61,261 @@
       }
     }
 
-    .envelope {
-      position: relative;
-      width: 100%;
-      max-width: 420px;
-      margin: 0 auto;
-      perspective: 1000px;
-    }
-
-    .flap {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 120px;
-      background: linear-gradient(135deg, #f4a261, #e76f51);
-      border-radius: 20px 20px 0 0;
-      transform-origin: top;
-      transition: transform .8s cubic-bezier(.22,1,.36,1);
-      z-index: 2;
-    }
-
-    .letter {
-      position: relative;
-      background: rgba(255,255,255,.9);
-      border-radius: 20px;
-      padding: 40px 24px 26px;
-      box-shadow: 0 10px 30px rgba(0,0,0,.08);
-      transform: translateY(0);
-      transition: transform .8s cubic-bezier(.22,1,.36,1);
-    }
-
-    .card.open .flap {
-      transform: rotateX(-160deg);
-    }
-
-    .card.open .letter {
-      transform: translateY(-40px);
-    }
-
     .tag {
       display: inline-block;
       padding: 7px 18px;
       border-radius: 999px;
-      background: linear-gradient(135deg, rgba(244,162,97,.2), rgba(231,111,81,.15));
-      border: 1px solid rgba(231,111,81,.35);
+      background: linear-gradient(135deg, rgba(244,162,97,.16), rgba(231,111,81,.12));
+      border: 1px solid rgba(231,111,81,.28);
       color: #c45e2a;
       font-size: 11px;
       font-weight: 600;
       letter-spacing: .12em;
       text-transform: uppercase;
       margin-bottom: 16px;
-      animation: fadeUp .5s .2s both;
     }
 
     h1 {
       font-family: 'Playfair Display', serif;
-      font-size: clamp(3rem, 7vw, 5rem);
+      font-size: clamp(2.5rem, 7vw, 4.8rem);
       font-weight: 400;
       color: #7c3520;
-      line-height: 1.05;
-      animation: fadeUp .5s .3s both;
-    }
-
-    h1 em {
-      font-style: italic;
-      color: #e76f51;
+      line-height: 1.04;
     }
 
     .sub {
       color: #9a5a3a;
       font-size: 1rem;
-      line-height: 1.75;
-      max-width: 480px;
-      margin: 12px auto 0;
-      animation: fadeUp .5s .4s both;
+      line-height: 1.8;
+      max-width: 520px;
+      margin: 14px auto 0;
     }
 
     .hint {
-      margin-top: 20px;
+      margin-top: 14px;
       color: #b07050;
-      font-size: .88rem;
-      animation: fadeUp .5s .5s both;
+      font-size: .92rem;
     }
 
     .btn {
       appearance: none;
       display: inline-block;
       margin-top: 28px;
-      padding: 15px 36px;
+      padding: 15px 34px;
       border-radius: 999px;
       background: linear-gradient(135deg, #f4a261, #e76f51);
       color: #fff;
       font-size: .95rem;
-      font-weight: 600;
+      font-weight: 700;
       border: none;
       cursor: pointer;
-      box-shadow: 0 8px 24px rgba(231,111,81,.4);
-      transition: transform .2s, box-shadow .2s;
-      animation: fadeUp .5s .6s both;
+      box-shadow: 0 10px 28px rgba(231,111,81,.28);
+      transition: transform .2s, box-shadow .2s, opacity .25s;
     }
 
     .btn:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 12px 32px rgba(231,111,81,.5);
+      transform: translateY(-2px);
+      box-shadow: 0 14px 34px rgba(231,111,81,.34);
     }
 
     .btn:active {
-      transform: scale(.97);
+      transform: scale(.98);
     }
 
-    .body-content {
+    /* SCHERMATA INIZIALE */
+    .intro-screen {
+      display: block;
+      animation: fadeIn .6s ease both;
+    }
+
+    .card.opened .intro-screen {
       display: none;
-      margin-top: 36px;
-      animation: fadeIn .6s cubic-bezier(.22,1,.36,1);
     }
 
-    .card.open .body-content {
+    .envelope-wrap {
+      max-width: 430px;
+      margin: 10px auto 0;
+    }
+
+    .envelope-closed {
+      position: relative;
+      width: 100%;
+      height: 270px;
+      border-radius: 28px;
+      background: linear-gradient(180deg, #f3ede8 0%, #f7f2ee 100%);
+      box-shadow:
+        0 18px 40px rgba(0,0,0,.06),
+        inset 0 1px 0 rgba(255,255,255,.8);
+      overflow: hidden;
+    }
+
+    .env-top {
+      position: absolute;
+      inset: 0 0 auto 0;
+      height: 108px;
+      background: linear-gradient(135deg, #f4a261, #e76f51);
+      border-radius: 28px 28px 0 0;
+    }
+
+    .env-left,
+    .env-right,
+    .env-bottom {
+      position: absolute;
+      background: rgba(255,255,255,.38);
+    }
+
+    .env-left {
+      width: 60%;
+      height: 2px;
+      left: -8%;
+      top: 64%;
+      transform: rotate(33deg);
+      transform-origin: left center;
+      opacity: .7;
+    }
+
+    .env-right {
+      width: 60%;
+      height: 2px;
+      right: -8%;
+      top: 64%;
+      transform: rotate(-33deg);
+      transform-origin: right center;
+      opacity: .7;
+    }
+
+    .env-bottom {
+      width: 76%;
+      height: 2px;
+      left: 12%;
+      bottom: 54px;
+      opacity: .45;
+    }
+
+    .env-seal {
+      position: absolute;
+      left: 50%;
+      top: 138px;
+      transform: translateX(-50%);
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #f7c18f, #e89066);
+      box-shadow:
+        0 8px 18px rgba(231,111,81,.18),
+        inset 0 2px 4px rgba(255,255,255,.4);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fffaf7;
+      font-size: 1.45rem;
+    }
+
+    .env-shadow-text {
+      margin-top: 22px;
+      color: #ad765a;
+      font-size: .95rem;
+    }
+
+    /* CONTENUTO DOPO IL CLICK */
+    .content-screen {
+      display: none;
+      animation: fadeUp .65s cubic-bezier(.22,1,.36,1) both;
+    }
+
+    .card.opened .content-screen {
       display: block;
     }
 
+    .divider {
+      width: 84px;
+      height: 1px;
+      margin: 0 auto 28px;
+      background: linear-gradient(to right, transparent, #e76f51, transparent);
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+      max-width: 560px;
+      margin: 28px auto 24px;
+    }
+
+    .item {
+      background: linear-gradient(135deg, rgba(244,162,97,.1), rgba(255,255,255,.72));
+      border: 1px solid rgba(244,162,97,.28);
+      border-radius: 20px;
+      padding: 18px;
+      text-align: left;
+    }
+
+    .label {
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: .12em;
+      color: rgba(196,94,42,.7);
+      margin-bottom: 7px;
+    }
+
+    .value {
+      font-size: 1rem;
+      font-weight: 600;
+      color: #7c3520;
+      line-height: 1.5;
+    }
+
+    .msg {
+      max-width: 560px;
+      margin: 0 auto 24px;
+      color: #9a5a3a;
+      line-height: 1.8;
+      font-size: .98rem;
+    }
+
+    .code-wrap {
+      display: inline-block;
+      padding: 12px 20px;
+      border-radius: 16px;
+      background: rgba(124,53,32,.06);
+      border: 1px solid rgba(231,111,81,.16);
+      font-family: 'Courier New', monospace;
+      font-size: .83rem;
+      color: #c45e2a;
+      margin-bottom: 28px;
+    }
+
+    .btns {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: 8px;
+    }
+
+    .aBtn {
+      padding: 13px 26px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, #f4a261, #e76f51);
+      color: #fff;
+      font-size: .92rem;
+      font-weight: 700;
+      text-decoration: none;
+      box-shadow: 0 8px 22px rgba(231,111,81,.25);
+      transition: transform .2s, box-shadow .2s;
+    }
+
+    .aBtn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 28px rgba(231,111,81,.34);
+    }
+
     @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes fadeUp {
       from {
         opacity: 0;
         transform: translateY(20px);
@@ -187,126 +326,23 @@
       }
     }
 
-    .divider {
-      width: 80px;
-      height: 1px;
-      margin: 0 auto 28px;
-      background: linear-gradient(to right, transparent, #e76f51, transparent);
-    }
-
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0,1fr));
-      gap: 14px;
-      max-width: 520px;
-      margin: 0 auto 24px;
-    }
-
-    .item {
-      background: linear-gradient(135deg, rgba(244,162,97,.1), rgba(255,255,255,.6));
-      border: 1px solid rgba(244,162,97,.3);
-      border-radius: 20px;
-      padding: 18px;
-      text-align: left;
-      animation: itemPop .5s cubic-bezier(.34,1.56,.64,1) both;
-    }
-
-    .item:nth-child(1) { animation-delay: .05s; }
-    .item:nth-child(2) { animation-delay: .1s; }
-    .item:nth-child(3) { animation-delay: .15s; }
-    .item:nth-child(4) { animation-delay: .2s; }
-
-    @keyframes itemPop {
-      from {
-        opacity: 0;
-        transform: scale(.88);
-      }
-      to {
-        opacity: 1;
-        transform: scale(1);
-      }
-    }
-
-    .label {
-      font-size: 10px;
-      text-transform: uppercase;
-      letter-spacing: .1em;
-      color: rgba(196,94,42,.65);
-      margin-bottom: 6px;
-    }
-
-    .value {
-      font-size: 1rem;
-      font-weight: 600;
-      color: #7c3520;
-    }
-
-    .msg {
-      max-width: 500px;
-      margin: 0 auto 24px;
-      color: #9a5a3a;
-      line-height: 1.8;
-      font-size: .97rem;
-    }
-
-    .code-wrap {
-      display: inline-block;
-      padding: 12px 20px;
-      border-radius: 16px;
-      background: rgba(124,53,32,.06);
-      border: 1px solid rgba(231,111,81,.18);
-      font-family: 'Courier New', monospace;
-      font-size: .83rem;
-      color: #c45e2a;
-      margin-bottom: 28px;
-      animation: glow 3s ease-in-out infinite;
-    }
-
-    @keyframes glow {
-      0%, 100% { box-shadow: 0 0 0 rgba(231,111,81,0); }
-      50% { box-shadow: 0 0 20px rgba(231,111,81,.2); }
-    }
-
-    .btns {
-      display: flex;
-      gap: 12px;
-      justify-content: center;
-      flex-wrap: wrap;
-    }
-
-    .aBtn {
-      padding: 13px 26px;
-      border-radius: 999px;
-      background: linear-gradient(135deg, #f4a261, #e76f51);
-      color: #fff;
-      font-size: .9rem;
-      font-weight: 600;
-      text-decoration: none;
-      border: none;
-      cursor: pointer;
-      box-shadow: 0 6px 20px rgba(231,111,81,.35);
-      transition: transform .2s, box-shadow .2s;
-    }
-
-    .aBtn:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 10px 28px rgba(231,111,81,.45);
-    }
-
-    @keyframes fadeUp {
-      from {
-        opacity: 0;
-        transform: translateY(16px);
-      }
-      to {
-        opacity: 1;
-        transform: none;
-      }
-    }
-
     @media (max-width: 600px) {
       .card {
-        padding: 32px 20px;
+        padding: 30px 18px;
+      }
+
+      .envelope-closed {
+        height: 230px;
+      }
+
+      .env-top {
+        height: 92px;
+      }
+
+      .env-seal {
+        top: 118px;
+        width: 62px;
+        height: 62px;
       }
 
       .grid {
@@ -323,40 +359,45 @@
   <canvas id="bg"></canvas>
 
   <main class="card" id="card">
-    <div class="intro envelope" id="intro">
-      <div class="flap"></div>
-      <div class="letter">
-        <span class="tag">Invito speciale</span>
-        <h1>Sei invitata/o</h1>
-        <p class="sub">
-          C'è un momento importante da condividere.<br>
-          E non potevi mancare proprio tu.
-        </p>
-        <p class="hint">Apri la lettera ✨</p>
+    <!-- Prima schermata -->
+    <section class="intro-screen" id="introScreen">
+      <div class="envelope-wrap">
+        <div class="envelope-closed">
+          <div class="env-top"></div>
+          <div class="env-left"></div>
+          <div class="env-right"></div>
+          <div class="env-bottom"></div>
+          <div class="env-seal">✦</div>
+        </div>
       </div>
-    </div>
 
-    <button class="btn" id="openBtn">Apri invito</button>
+      <p class="env-shadow-text">Hai ricevuto un invito speciale ✨</p>
+      <button class="btn" id="openBtn">Apri invito</button>
+    </section>
 
-    <div class="body-content" id="bodyContent">
+    <!-- Contenuto finale -->
+    <section class="content-screen" id="contentScreen">
       <div class="divider"></div>
       <span class="tag">Laurea in Informatica e Tecnologie per la Produzione del Software</span>
-      <h1 style="font-size:clamp(2.2rem,5vw,3.6rem);margin-top:10px;">Rebecca</h1>
+      <h1 style="font-size:clamp(2.2rem,5vw,3.8rem); margin-top:10px;">Rebecca</h1>
       <p class="sub">Sono felice di invitarti a festeggiare con me questo traguardo.</p>
 
-      <div class="grid" style="margin-top:24px;">
+      <div class="grid">
         <div class="item">
           <div class="label">Data</div>
           <div class="value">giorno x</div>
         </div>
+
         <div class="item">
           <div class="label">Ora</div>
           <div class="value">ora x</div>
         </div>
+
         <div class="item">
           <div class="label">Luogo</div>
           <div class="value">location x</div>
         </div>
+
         <div class="item">
           <div class="label">Dress code</div>
           <div class="value">Come preferisci, l’importante è festeggiare insieme 🎉</div>
@@ -380,7 +421,7 @@
           ❌ Non partecipo
         </a>
       </div>
-    </div>
+    </section>
   </main>
 
   <script>
@@ -405,7 +446,7 @@
         this.vr = (Math.random() - 0.5) * 3;
         this.w = 10 + Math.random() * 12;
         this.h = 6 + Math.random() * 8;
-        this.alpha = 0.4 + Math.random() * 0.5;
+        this.alpha = 0.35 + Math.random() * 0.5;
         this.color = COLORS[Math.floor(Math.random() * COLORS.length)];
       };
       this.reset(true);
@@ -436,7 +477,7 @@
     }
 
     resize();
-    for (let i = 0; i < 70; i++) {
+    for (let i = 0; i < 55; i++) {
       petals.push(new Petal());
     }
     draw();
@@ -445,12 +486,9 @@
 
     document.getElementById('openBtn').addEventListener('click', () => {
       const card = document.getElementById('card');
-      const btn = document.getElementById('openBtn');
+      card.classList.add('opened');
 
-      card.classList.add('open');
-      btn.style.display = 'none';
-
-      for (let i = 0; i < 40; i++) {
+      for (let i = 0; i < 34; i++) {
         const p = new Petal();
         p.y = -20;
         p.x = Math.random() * W;
