@@ -3,172 +3,317 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Invito Festa di Laurea</title>
+  <title>Invito Festa di Laurea - Rebecca</title>
 
-  <!-- META PER ANTEPRIMA -->
-  <meta property="og:title" content="Festa di Laurea 🎓 Rebecca">
-  <meta property="og:description" content="Clicca per scoprire tutti i dettagli della mia festa">
-  <meta property="og:image" content="INSERISCI_QUI_LINK_IMMAGINE">
-  <meta property="og:type" content="website">
+  <meta property="og:title" content="Festa di Laurea 🎓 Rebecca" />
+  <meta property="og:description" content="Clicca per scoprire tutti i dettagli della mia festa di laurea" />
+  <meta property="og:image" content="https://raw.githubusercontent.com/rebecca3012/invito-laurea/main/Anteprima.png" />
+  <meta property="og:type" content="website" />
 
   <style>
     :root {
+      --bg-top: #e8edf1;
+      --bg-bottom: #cfd8de;
+      --card-top: #314c60;
+      --card-bottom: #1f2f3a;
       --text: #ffffff;
-      --muted: rgba(255,255,255,0.7);
-      --accent: #ffffff;
+      --muted: rgba(255, 255, 255, 0.78);
+      --soft: rgba(255, 255, 255, 0.10);
+      --soft-border: rgba(255, 255, 255, 0.16);
+      --button-border: rgba(255,255,255,0.50);
+      --shadow: 0 20px 55px rgba(0,0,0,0.20);
       --radius: 28px;
-      --shadow: 0 20px 50px rgba(0,0,0,0.2);
     }
 
-    * { box-sizing: border-box; }
+    * {
+      box-sizing: border-box;
+    }
 
     body {
       margin: 0;
       min-height: 100vh;
-      font-family: Inter, system-ui, sans-serif;
-      background: linear-gradient(180deg, #e6ecf0 0%, #cfd8dc 100%);
+      font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: linear-gradient(180deg, var(--bg-top) 0%, var(--bg-bottom) 100%);
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 20px;
+      padding: 24px;
+      color: var(--text);
     }
 
     .card {
-      background: linear-gradient(180deg, #2f4a5c 0%, #1f2f3a 100%);
-      color: white;
-      border-radius: var(--radius);
-      padding: 40px 25px;
-      max-width: 700px;
-      width: 100%;
-      text-align: center;
-      box-shadow: var(--shadow);
       position: relative;
+      width: 100%;
+      max-width: 760px;
+      background: linear-gradient(180deg, var(--card-top) 0%, var(--card-bottom) 100%);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
       overflow: hidden;
+      padding: 42px 28px;
+      text-align: center;
     }
 
-    .card::after {
+    .card::before {
       content: "";
       position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 100%;
-      height: 120px;
-      background: radial-gradient(circle, rgba(255,255,255,0.2) 1px, transparent 1px);
-      background-size: 20px 20px;
-      opacity: 0.2;
+      inset: 0;
+      background:
+        radial-gradient(circle at 20% 78%, rgba(255,255,255,0.18) 0 2px, transparent 3px),
+        radial-gradient(circle at 30% 82%, rgba(255,255,255,0.20) 0 2px, transparent 3px),
+        radial-gradient(circle at 73% 80%, rgba(255,255,255,0.18) 0 2px, transparent 3px),
+        radial-gradient(circle at 82% 86%, rgba(255,255,255,0.18) 0 2px, transparent 3px);
+      pointer-events: none;
+      opacity: 0.7;
+    }
+
+    .content {
+      position: relative;
+      z-index: 1;
+    }
+
+    .tag {
+      display: inline-block;
+      padding: 8px 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.18);
+      background: rgba(255,255,255,0.08);
+      color: rgba(255,255,255,0.92);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.10em;
+      text-transform: uppercase;
+      margin-bottom: 14px;
     }
 
     h1 {
-      font-family: Georgia, serif;
-      font-size: 3rem;
+      margin: 8px 0 12px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(2.5rem, 6vw, 4.8rem);
+      font-weight: 500;
+      line-height: 1.05;
+    }
+
+    .name {
+      font-size: clamp(2.1rem, 5vw, 3.8rem);
+      margin-top: 8px;
       margin-bottom: 10px;
+      font-family: Inter, system-ui, sans-serif;
+      font-weight: 300;
     }
 
     .subtitle {
+      max-width: 580px;
+      margin: 0 auto;
       color: var(--muted);
-      margin-bottom: 25px;
+      font-size: 1.05rem;
+      line-height: 1.7;
     }
 
-    button {
-      padding: 14px 24px;
-      border-radius: 999px;
-      border: 1px solid rgba(255,255,255,0.6);
+    .hint {
+      margin-top: 24px;
+      color: rgba(255,255,255,0.72);
+      font-size: 0.92rem;
+    }
+
+    .button-wrap {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 28px;
+    }
+
+    .btn {
+      appearance: none;
+      border: 1px solid var(--button-border);
       background: transparent;
       color: white;
+      padding: 14px 24px;
+      border-radius: 999px;
+      font-size: 0.98rem;
       font-weight: 600;
+      text-decoration: none;
       cursor: pointer;
+    }
+
+    .btn-filled {
+      background: rgba(255,255,255,0.14);
     }
 
     .details {
       display: none;
-      margin-top: 30px;
+      margin-top: 34px;
     }
 
     .details.open {
       display: block;
-      animation: fade 0.6s ease;
+      animation: fadeIn 0.6s ease;
     }
 
-    @keyframes fade {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
+    .divider {
+      width: 80px;
+      height: 1px;
+      margin: 0 auto 24px;
+      background: linear-gradient(to right, transparent, rgba(255,255,255,0.45), transparent);
     }
 
     .grid {
       display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 15px;
-      margin-top: 20px;
+      max-width: 580px;
+      margin: 28px auto 22px;
     }
 
     .item {
-      background: rgba(255,255,255,0.1);
-      padding: 15px;
-      border-radius: 15px;
+      background: var(--soft);
+      border: 1px solid var(--soft-border);
+      border-radius: 18px;
+      padding: 18px;
+      text-align: left;
     }
 
     .label {
-      font-size: 0.8rem;
-      color: var(--muted);
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: rgba(255,255,255,0.65);
+      margin-bottom: 8px;
     }
 
     .value {
-      font-size: 1.1rem;
-      font-weight: bold;
+      font-size: 1.08rem;
+      font-weight: 600;
+      line-height: 1.45;
+      color: white;
     }
 
-    .code {
-      margin-top: 20px;
-      font-family: monospace;
-      background: rgba(0,0,0,0.6);
-      padding: 10px;
-      border-radius: 10px;
+    .message {
+      max-width: 560px;
+      margin: 18px auto 0;
+      color: rgba(255,255,255,0.86);
+      line-height: 1.75;
+      font-size: 1rem;
+    }
+
+    .code-line {
       display: inline-block;
+      margin-top: 24px;
+      padding: 12px 16px;
+      border-radius: 14px;
+      background: rgba(7, 12, 18, 0.70);
+      border: 1px solid rgba(255,255,255,0.08);
+      font-family: Consolas, Menlo, monospace;
+      font-size: 0.92rem;
+      color: #d9f7ee;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(18px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (max-width: 640px) {
+      .card {
+        padding: 30px 18px;
+      }
+
+      .grid {
+        grid-template-columns: 1fr;
+      }
+
+      .btn,
+      .button-wrap a {
+        width: 100%;
+      }
     }
   </style>
 </head>
-
 <body>
+  <main class="card">
+    <div class="content">
 
-<div class="card">
-  <div id="intro">
-    <h1>Festa di Laurea</h1>
-    <p class="subtitle">Clicca per scoprire il tuo invito</p>
-    <button onclick="apriInvito()">Apri invito</button>
-  </div>
+      <section id="intro">
+        <span class="tag">Invito digitale</span>
+        <h1>Festa di Laurea</h1>
+        <p class="subtitle">
+          Hai ricevuto l’accesso a un evento speciale.<br>
+          Clicca qui sotto per aprire l’invito e scoprire tutti i dettagli.
+        </p>
 
-  <div class="details" id="details">
-    <h1>Rebecca</h1>
-    <p class="subtitle">Laurea in Informatica 🎓</p>
+        <div class="button-wrap">
+          <button
+            class="btn btn-filled"
+            onclick="document.getElementById('details').classList.add('open'); document.getElementById('intro').style.display='none';">
+            Apri invito
+          </button>
+        </div>
 
-    <div class="grid">
-      <div class="item">
-        <div class="label">Data</div>
-        <div class="value">[Inserisci data]</div>
-      </div>
-      <div class="item">
-        <div class="label">Ora</div>
-        <div class="value">[Inserisci ora]</div>
-      </div>
-      <div class="item">
-        <div class="label">Luogo</div>
-        <div class="value">[Inserisci luogo]</div>
-      </div>
+        <p class="hint">Un invito elegante, con un piccolo tocco informatico.</p>
+      </section>
+
+      <section class="details" id="details">
+        <div class="divider"></div>
+        <span class="tag">Laurea in Informatica</span>
+
+        <div class="name">Rebecca</div>
+
+        <p class="subtitle">
+          Sono felice di invitarti a festeggiare con me questo traguardo.
+        </p>
+
+        <div class="grid">
+          <div class="item">
+            <div class="label">Data</div>
+            <div class="value">[Inserisci data]</div>
+          </div>
+
+          <div class="item">
+            <div class="label">Ora</div>
+            <div class="value">[Inserisci orario]</div>
+          </div>
+
+          <div class="item">
+            <div class="label">Luogo</div>
+            <div class="value">[Inserisci location]</div>
+          </div>
+
+          <div class="item">
+            <div class="label">Dress code</div>
+            <div class="value">[Facoltativo]</div>
+          </div>
+        </div>
+
+        <p class="message">
+          La tua presenza renderà questa serata ancora più speciale.
+          Ti aspetto per brindare, festeggiare e condividere insieme
+          questo momento importante.
+        </p>
+
+        <div class="code-line">
+          if (graduationCompleted) { celebrateTogether(); }
+        </div>
+
+        <div class="button-wrap">
+          <a class="btn" href="https://maps.google.com" target="_blank" rel="noreferrer">
+            Apri mappa
+          </a>
+
+          <a class="btn btn-filled" href="https://wa.me/?text=Ci%20sar%C3%B2%20alla%20festa%20di%20laurea!" target="_blank" rel="noreferrer">
+            Conferma presenza
+          </a>
+        </div>
+      </section>
+
     </div>
-
-    <p class="subtitle">Ti aspetto per festeggiare insieme 🎉</p>
-
-    <div class="code">
-      if (laurea == true) { festeggia(); }
-    </div>
-  </div>
-</div>
-
-<script>
-function apriInvito() {
-  document.getElementById("details").classList.add("open");
-  document.getElementById("intro").style.display = "none";
-}
-</script>
-
+  </main>
 </body>
 </html>
+      
+ 
