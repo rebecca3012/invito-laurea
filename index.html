@@ -17,9 +17,9 @@
       --card-top: #314c60;
       --card-bottom: #1f2f3a;
       --text: #ffffff;
-      --muted: rgba(255, 255, 255, 0.78);
-      --soft: rgba(255, 255, 255, 0.10);
-      --soft-border: rgba(255, 255, 255, 0.16);
+      --muted: rgba(255,255,255,0.78);
+      --soft: rgba(255,255,255,0.10);
+      --soft-border: rgba(255,255,255,0.16);
       --button-border: rgba(255,255,255,0.50);
       --shadow: 0 20px 55px rgba(0,0,0,0.20);
       --radius: 28px;
@@ -123,10 +123,11 @@
       margin-top: 28px;
     }
 
-    .btn {
+    .btn,
+    summary.btn {
       appearance: none;
       border: 1px solid var(--button-border);
-      background: transparent;
+      background: rgba(255,255,255,0.14);
       color: white;
       padding: 14px 24px;
       border-radius: 999px;
@@ -134,20 +135,34 @@
       font-weight: 600;
       text-decoration: none;
       cursor: pointer;
+      display: inline-block;
+      list-style: none;
     }
 
-    .btn-filled {
-      background: rgba(255,255,255,0.14);
+    summary.btn::-webkit-details-marker {
+      display: none;
     }
 
-    .details {
+    details.invite {
+      width: 100%;
+    }
+
+    details.invite summary {
+      margin: 28px auto 0;
+    }
+
+    .details-content {
       display: none;
       margin-top: 34px;
+      animation: fadeIn 0.5s ease;
     }
 
-    .details.open {
+    details[open] .details-content {
       display: block;
-      animation: fadeIn 0.6s ease;
+    }
+
+    details[open] .intro-only {
+      display: none;
     }
 
     .divider {
@@ -229,7 +244,8 @@
       }
 
       .btn,
-      .button-wrap a {
+      .button-wrap a,
+      summary.btn {
         width: 100%;
       }
     }
@@ -238,82 +254,73 @@
 <body>
   <main class="card">
     <div class="content">
+      <details class="invite">
+        <summary class="btn">Apri invito</summary>
 
-      <section id="intro">
-        <span class="tag">Invito digitale</span>
-        <h1>Festa di Laurea</h1>
-        <p class="subtitle">
-          Hai ricevuto l’accesso a un evento speciale.<br>
-          Clicca qui sotto per aprire l’invito e scoprire tutti i dettagli.
-        </p>
-
-        <div class="button-wrap">
-          <button
-            class="btn btn-filled"
-            onclick="document.getElementById('details').classList.add('open'); document.getElementById('intro').style.display='none';">
-            Apri invito
-          </button>
+        <div class="intro-only">
+          <span class="tag">Invito digitale</span>
+          <h1>Festa di Laurea</h1>
+          <p class="subtitle">
+            Hai ricevuto l’accesso a un evento speciale.<br>
+            Clicca qui sopra per aprire l’invito e scoprire tutti i dettagli.
+          </p>
+          <p class="hint">Un invito elegante, con un piccolo tocco informatico.</p>
         </div>
 
-        <p class="hint">Un invito elegante, con un piccolo tocco informatico.</p>
-      </section>
+        <div class="details-content">
+          <div class="divider"></div>
+          <span class="tag">Laurea in Informatica</span>
 
-      <section class="details" id="details">
-        <div class="divider"></div>
-        <span class="tag">Laurea in Informatica</span>
+          <div class="name">Rebecca</div>
 
-        <div class="name">Rebecca</div>
+          <p class="subtitle">
+            Sono felice di invitarti a festeggiare con me questo traguardo.
+          </p>
 
-        <p class="subtitle">
-          Sono felice di invitarti a festeggiare con me questo traguardo.
-        </p>
+          <div class="grid">
+            <div class="item">
+              <div class="label">Data</div>
+              <div class="value">[Inserisci data]</div>
+            </div>
 
-        <div class="grid">
-          <div class="item">
-            <div class="label">Data</div>
-            <div class="value">[Inserisci data]</div>
+            <div class="item">
+              <div class="label">Ora</div>
+              <div class="value">[Inserisci orario]</div>
+            </div>
+
+            <div class="item">
+              <div class="label">Luogo</div>
+              <div class="value">[Inserisci location]</div>
+            </div>
+
+            <div class="item">
+              <div class="label">Dress code</div>
+              <div class="value">[Facoltativo]</div>
+            </div>
           </div>
 
-          <div class="item">
-            <div class="label">Ora</div>
-            <div class="value">[Inserisci orario]</div>
+          <p class="message">
+            La tua presenza renderà questa serata ancora più speciale.
+            Ti aspetto per brindare, festeggiare e condividere insieme
+            questo momento importante.
+          </p>
+
+          <div class="code-line">
+            if (graduationCompleted) { celebrateTogether(); }
           </div>
 
-          <div class="item">
-            <div class="label">Luogo</div>
-            <div class="value">[Inserisci location]</div>
-          </div>
+          <div class="button-wrap">
+            <a class="btn" href="https://maps.google.com" target="_blank" rel="noreferrer">
+              Apri mappa
+            </a>
 
-          <div class="item">
-            <div class="label">Dress code</div>
-            <div class="value">[Facoltativo]</div>
+            <a class="btn" href="https://wa.me/?text=Ci%20sar%C3%B2%20alla%20festa%20di%20laurea!" target="_blank" rel="noreferrer">
+              Conferma presenza
+            </a>
           </div>
         </div>
-
-        <p class="message">
-          La tua presenza renderà questa serata ancora più speciale.
-          Ti aspetto per brindare, festeggiare e condividere insieme
-          questo momento importante.
-        </p>
-
-        <div class="code-line">
-          if (graduationCompleted) { celebrateTogether(); }
-        </div>
-
-        <div class="button-wrap">
-          <a class="btn" href="https://maps.google.com" target="_blank" rel="noreferrer">
-            Apri mappa
-          </a>
-
-          <a class="btn btn-filled" href="https://wa.me/?text=Ci%20sar%C3%B2%20alla%20festa%20di%20laurea!" target="_blank" rel="noreferrer">
-            Conferma presenza
-          </a>
-        </div>
-      </section>
-
+      </details>
     </div>
   </main>
 </body>
 </html>
-      
- 
